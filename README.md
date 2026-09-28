@@ -19,11 +19,11 @@ HTML, CSS y JavaScript puros: sin frameworks ni instalaciones. Se abre directame
 
 Todos los datos del negocio están en **`assets/js/data.js`**:
 
-- `TS_CONFIG.empresa`: razón social, NIT, dirección, correo, WhatsApp y horario.
-- `TS_CONFIG.tienda`: envío gratis, días de entrega, garantía, devoluciones, descuento del club, etc.
+- `TS_CONFIG.empresa`: razón social, RIF, dirección (Maracaibo), correo, WhatsApp y horario.
+- `TS_CONFIG.tienda`: precios en dólares (USD), envío gratis, días de entrega, garantía, devoluciones, descuento del club, etc.
 - `TS_PRODUCTS`: productos, precios, fotos y descripciones.
 
-> Los datos actuales (NIT, dirección, teléfono, precios) son **de ejemplo** para el prototipo.
+> Los datos actuales (RIF, dirección, teléfono, precios) son **de ejemplo** para el prototipo.
 > Cámbialos por los reales antes de usar la tienda con clientes.
 
 ## Cómo verla

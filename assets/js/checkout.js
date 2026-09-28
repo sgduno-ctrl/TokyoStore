@@ -23,7 +23,7 @@
 
     function totals() {
       var sub = Cart.subtotal();
-      var disc = coupon ? Math.round(sub * T.descuentoClub / 100) : 0;
+      var disc = coupon ? Math.round(sub * T.descuentoClub) / 100 : 0;
       var shipCost = sub === 0 || sub - disc >= T.envioGratisDesde ? 0 : T.costoEnvio;
       return { sub: sub, disc: disc, ship: shipCost, total: sub - disc + shipCost };
     }
