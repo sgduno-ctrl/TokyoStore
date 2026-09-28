@@ -43,3 +43,5 @@ python3 -m http.server 8000
   para eso hace falta conectar un servicio externo.
 - El carrito se guarda en el navegador (`localStorage`).
 - Foto de la Mega Drive: Evan-Amos, Wikimedia Commons, dominio público.
+- Las páginas cargan los estilos y el código con `?v=2`. Cuando cambies algo en `assets/css` o `assets/js`,
+  sube ese número en todos los `.html` para que los teléfonos no se queden con la versión vieja en caché.
