@@ -31,8 +31,8 @@
       horarioCorto: e.horarioCorto, pais: t.pais, moneda: t.moneda, impuestos: t.impuestos,
       envioGratis: fmt(t.envioGratisDesde), costoEnvio: fmt(t.costoEnvio),
       entrega: t.entregaMin + ' a ' + t.entregaMax, diasDevolucion: t.diasDevolucion,
-      diasReembolso: t.diasReembolso, diasGarantia: t.diasGarantia, descuentoClub: t.descuentoClub + '%',
-      cuotas: t.cuotas, pasarela: t.pasarela, actualizacion: t.actualizacion, codigoClub: t.codigoClub
+      diasReembolso: t.diasReembolso, diasGarantia: t.diasGarantia, premioMes: t.premioMes, regaloClub: t.regaloClub,
+      cuotas: t.cuotas, pasarela: t.pasarela, actualizacion: t.actualizacion
     };
     $$('[data-cfg]').forEach(function (el) { var k = el.getAttribute('data-cfg'); if (map[k] != null) el.textContent = map[k]; });
     $$('[data-href="correo"]').forEach(function (a) { a.href = 'mailto:' + e.correo; });
@@ -409,7 +409,7 @@
         if (!EMAIL.test(email.value.trim())) {
           email.setAttribute('aria-invalid', 'true');
           msg.className = 'form-msg is-error';
-          msg.textContent = 'Escribe un correo válido para recibir tu cupón.';
+          msg.textContent = 'Escribe un correo válido para participar en el sorteo.';
           email.focus();
           return;
         }
@@ -417,7 +417,7 @@
         email.setAttribute('aria-invalid', 'false');
         store.set('ts_club', { email: email.value.trim(), at: Date.now() });
         msg.className = 'form-msg is-ok';
-        msg.innerHTML = '¡Listo! Tu cupón <b>' + CFG.tienda.codigoClub + '</b> (' + CFG.tienda.descuentoClub + '% en tu primera compra) se aplicará al pagar.';
+        msg.innerHTML = '¡Listo, ya estás dentro! Participas en el <b>sorteo de este mes</b> y tu primera compra llevará <b>' + CFG.tienda.regaloClub + '</b>.';
         form.reset();
       });
     });

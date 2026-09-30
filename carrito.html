@@ -14,10 +14,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Space+Mono:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="assets/css/styles.css?v=2">
-<script src="assets/js/data.js?v=2" defer></script>
-<script src="assets/js/app.js?v=2" defer></script>
-<script src="assets/js/checkout.js?v=2" defer></script>
+<link rel="stylesheet" href="assets/css/styles.css?v=7">
+<script src="assets/js/data.js?v=7" defer></script>
+<script src="assets/js/app.js?v=7" defer></script>
+<script src="assets/js/checkout.js?v=7" defer></script>
 
 </head>
 <body data-page="carrito">
@@ -141,13 +141,7 @@
         <h2 id="sum-t">Resumen</h2>
         <div class="sum-row"><span>Subtotal</span><span id="sumSub">$0</span></div>
         <div class="sum-row"><span>Envío</span><span id="sumShip">Gratis</span></div>
-        <div class="sum-row" id="sumDiscRow"><span>Descuento Club TokyoStore</span><span id="sumDisc">– <span data-cfg="descuentoClub">10%</span></span></div>
-        <form class="coupon" id="couponForm" novalidate>
-          <label class="sr-only" for="coupon">Código de descuento</label>
-          <input id="coupon" name="coupon" placeholder="Código del club (ej.: CLUB10)" autocomplete="off">
-          <button class="btn" type="submit">Aplicar</button>
-        </form>
-        <p class="coupon-msg" id="couponMsg" role="status" aria-live="polite"></p>
+        <div class="sum-row sum-gift" id="sumGiftRow"><span>🎁 Regalo Club TokyoStore</span><span id="sumGift"><a href="index.html#club">Únete al club</a></span></div>
         <div class="sum-total"><b>Total</b><span id="sumTotal">$0</span></div>
         <button class="btn btn-yellow btn-pay" type="button" id="payBtn"><svg class="icon" aria-hidden="true"><use href="#i-lock"></use></svg>Pagar de forma segura</button>
         <p class="form-msg" id="payMsg" role="status" aria-live="polite" style="color:var(--yellow)"></p>

@@ -14,9 +14,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Space+Mono:wght@400;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="assets/css/styles.css?v=2">
-<script src="assets/js/data.js?v=2" defer></script>
-<script src="assets/js/app.js?v=2" defer></script>
+<link rel="stylesheet" href="assets/css/styles.css?v=7">
+<script src="assets/js/data.js?v=7" defer></script>
+<script src="assets/js/app.js?v=7" defer></script>
 
 </head>
 <body data-page="inicio">
@@ -114,6 +114,30 @@
 </div>
 <main id="main">
 
+<!-- LANDING PAGE: captación rápida -->
+<section class="lead" aria-labelledby="lead-title">
+  <div class="wrap" data-form-wrap>
+    <div class="lead__bar">
+      <img class="lead__badge" src="assets/img/japan.png" alt="" width="84" height="84">
+      <div class="lead__copy">
+        <h2 class="lead__title" id="lead-title">Gana <span data-cfg="premioMes">un juego japonés de colección</span> este mes</h2>
+        <ul class="lead__perks" aria-label="Qué recibes al unirte al Club TokyoStore">
+          <li class="lead__perk lead__perk--gift"><span aria-hidden="true">🎁</span><b>Regalo gratis en tu primera compra</b></li>
+          <li class="lead__perk lead__perk--gift"><span aria-hidden="true">🏆</span><b>Sorteo mensual gratis</b></li>
+          <li class="lead__perk"><span aria-hidden="true">⚡</span>Lotes 24 h antes</li>
+        </ul>
+      </div>
+      <form class="lead__form" data-club data-simple novalidate>
+        <label class="sr-only" for="lead-email">Correo electrónico</label>
+        <input class="field-pill" id="lead-email" type="email" name="email" placeholder="tu@correo.com" autocomplete="email" required>
+        <button class="btn btn-yellow" type="submit">Quiero participar</button>
+      </form>
+      <p class="form-msg" role="status" aria-live="polite"></p>
+      <p class="lead__legal">Al suscribirte aceptas el <a href="legal.html#privacidad">Aviso de privacidad</a> y los <a href="legal.html#terminos">Términos y condiciones</a>.</p>
+    </div>
+  </div>
+</section>
+
 <!-- HERO -->
 <section class="hero" id="hero" aria-labelledby="hero-title" aria-roledescription="carrusel">
   <div class="hero__inner">
@@ -144,26 +168,6 @@
     </div>
   </div>
   <div class="hero__stripes" aria-hidden="true"></div>
-</section>
-
-<!-- LANDING PAGE: captación rápida -->
-<section class="lead" aria-labelledby="lead-title">
-  <div class="wrap" data-form-wrap>
-    <div class="lead__bar">
-      <span class="lead__badge" aria-hidden="true">会</span>
-      <div class="lead__copy">
-        <h2 class="lead__title" id="lead-title">Únete al Club TokyoStore</h2>
-        <p class="lead__text">Recibe <span data-cfg="descuentoClub">10%</span> en tu primera compra y aviso de nuevos lotes desde Japón.</p>
-      </div>
-      <form class="lead__form" data-club data-simple novalidate>
-        <label class="sr-only" for="lead-email">Correo electrónico</label>
-        <input class="field-pill" id="lead-email" type="email" name="email" placeholder="tu@correo.com" autocomplete="email" required>
-        <button class="btn btn-yellow" type="submit">Quiero mi cupón</button>
-      </form>
-      <p class="form-msg" role="status" aria-live="polite"></p>
-      <p class="lead__legal">Al suscribirte aceptas el <a href="legal.html#privacidad">Aviso de privacidad</a> y los <a href="legal.html#terminos">Términos y condiciones</a>.</p>
-    </div>
-  </div>
 </section>
 
 <nav class="quicknav m-only" aria-label="Navegación rápida">
@@ -459,10 +463,11 @@
       <span class="club__sun" aria-hidden="true"></span>
       <div class="club__copy">
         <p class="eyebrow">Club TokyoStore · <span lang="ja">会員募集</span></p>
-        <h2 class="h-xl" id="club-title">Únete al club y recibe <span data-cfg="descuentoClub">10%</span> en tu primera compra.</h2>
+        <h2 class="h-xl" id="club-title">Únete al club y gana <span data-cfg="premioMes">un juego japonés de colección</span>.</h2>
         <ul class="club__perks">
-          <li>Aviso antes que nadie cuando llega un nuevo lote de Japón</li>
-          <li>Guías para conectar tu consola japonesa sin complicaciones</li>
+          <li class="perk--gift"><span class="perk__ico" aria-hidden="true">🎁</span><div><b>Regalo gratis en tu primera compra</b><small><span data-cfg="regaloClub">un regalo sorpresa retro</span>, dentro de tu paquete y sin costo.</small></div></li>
+          <li class="perk--gift"><span class="perk__ico" aria-hidden="true">🏆</span><div><b>Sorteo mensual gratis</b><small>Cada mes sorteamos <span data-cfg="premioMes">un juego japonés de colección</span> entre los miembros. Participar no cuesta nada.</small></div></li>
+          <li>Aviso 24 horas antes que nadie cuando llega un nuevo lote de Japón</li>
           <li>Preventas y piezas de colección reservadas para miembros</li>
         </ul>
       </div>
@@ -474,9 +479,9 @@
           <select class="input" id="club-console" name="consola">
             <option>Dreamcast</option><option>Sega Saturn</option><option>Mega Drive</option><option>PlayStation</option><option>Super Famicom</option><option>Nintendo 64</option><option>Game Boy</option><option>PC Engine</option>
           </select></div>
-        <button class="btn btn-ink" type="submit">Unirme y recibir mi cupón</button>
+        <button class="btn btn-ink" type="submit">Unirme y entrar al sorteo</button>
         <p class="form-msg" role="status" aria-live="polite"></p>
-        <small>Sin spam. Puedes darte de baja cuando quieras. Al unirte aceptas el <a class="legal-link" href="legal.html#privacidad">Aviso de privacidad</a>.</small>
+        <small>Sin spam. Puedes darte de baja cuando quieras. Al unirte aceptas el <a class="legal-link" href="legal.html#privacidad">Aviso de privacidad</a> y las <a class="legal-link" href="legal.html#sorteo">bases del sorteo</a>.</small>
       </form>
     </div>
   </div>

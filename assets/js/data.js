@@ -29,8 +29,8 @@ window.TS_CONFIG = {
     diasDevolucion: 30,
     diasReembolso: 15,
     diasGarantia: 90,
-    descuentoClub: 10,          // porcentaje
-    codigoClub: 'CLUB10',
+    premioMes: 'un juego japonés de colección',   // premio del sorteo mensual del club
+    regaloClub: 'un regalo sorpresa retro',        // va en la primera compra de cada miembro
     cuotas: 'Sí, hasta 12 cuotas',
     pasarela: 'una pasarela de pagos certificada PCI DSS',
     actualizacion: '27 de septiembre de 2026'

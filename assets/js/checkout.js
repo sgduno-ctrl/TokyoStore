@@ -12,8 +12,7 @@
     var list = $('#cartList'), empty = $('#cartEmpty');
     var shipPanel = $('#panelShip'), payPanel = $('#panelPay'), payBtn = $('#payBtn');
     var ship = TS.store.get('ts_ship', null);
-    var coupon = TS.store.get('ts_coupon', null);
-    if (!coupon && TS.store.get('ts_club', null)) coupon = T.codigoClub;
+    var member = !!TS.store.get('ts_club', null);
 
     function step() {
       if (!Cart.count()) return 1;
@@ -23,9 +22,8 @@
 
     function totals() {
       var sub = Cart.subtotal();
-      var disc = coupon ? Math.round(sub * T.descuentoClub) / 100 : 0;
-      var shipCost = sub === 0 || sub - disc >= T.envioGratisDesde ? 0 : T.costoEnvio;
-      return { sub: sub, disc: disc, ship: shipCost, total: sub - disc + shipCost };
+      var shipCost = sub === 0 || sub >= T.envioGratisDesde ? 0 : T.costoEnvio;
+      return { sub: sub, ship: shipCost, total: sub + shipCost };
     }
 
     function renderList() {
@@ -46,13 +44,12 @@
       var t = totals();
       $('#sumSub').textContent = TS.fmt(t.sub);
       $('#sumShip').textContent = t.sub === 0 ? '—' : t.ship === 0 ? 'Gratis' : TS.fmt(t.ship);
-      $('#sumDisc').textContent = coupon ? '– ' + TS.fmt(t.disc) + ' (' + T.descuentoClub + '%)' : 'Sin aplicar';
-      $('#sumDiscRow').classList.toggle('is-off', !coupon);
+      $('#sumGift').innerHTML = member ? 'Incluido gratis' : '<a href="index.html#club">Únete al club</a>';
+      $('#sumGiftRow').classList.toggle('is-off', !member);
       $('#sumTotal').textContent = TS.fmt(t.total);
       var s = step();
       payBtn.disabled = s < 3;
       payBtn.setAttribute('aria-disabled', String(s < 3));
-      if (coupon) $('#coupon').value = coupon;
     }
 
     function renderSteps(done) {
@@ -153,16 +150,6 @@
       return true;
     }
 
-    /* Cupón */
-    $('#couponForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      var v = $('#coupon').value.trim().toUpperCase(), msg = $('#couponMsg');
-      if (!v) { coupon = null; TS.store.set('ts_coupon', null); msg.textContent = 'Cupón retirado.'; renderSummary(); return; }
-      if (v === T.codigoClub) { coupon = v; TS.store.set('ts_coupon', v); msg.textContent = '¡Cupón aplicado! ' + T.descuentoClub + '% de descuento.'; }
-      else { msg.textContent = 'Ese código no existe. Únete al club para recibir el tuyo.'; }
-      renderSummary();
-    });
-
     /* Pagar */
     payBtn.addEventListener('click', function () {
       var msg = $('#payMsg');
@@ -191,7 +178,7 @@
       }
       TS.store.set('ts_last_order', { order: order, total: t.total, at: Date.now() });
       TS.store.set('ts_ship', null);
-      TS.store.set('ts_coupon', null);
+      if (member) $('#confirmText').textContent += ' Dentro del paquete va ' + T.regaloClub + ' de parte del Club TokyoStore.';
       Cart.clear();
       $('#checkout').hidden = true;
       $('#confirmation').hidden = false;
